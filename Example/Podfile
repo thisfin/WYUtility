@@ -1,0 +1,9 @@
+use_frameworks!
+
+source "git@git.coding.net:thisfin/Specs.git"
+
+target 'WYUtility_Tests' do
+  pod 'WYUtility', :path => '../'
+  
+  
+end
