@@ -18,10 +18,11 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'WYUtility/**/*'
+  s.resource = 'WYUtility/**/*.{png,ttf}'
   
-  # s.resource_bundles = {
-  #   'WYUtility' => ['WYUtility/Assets/*.png']
-  # }
+  #s.resource_bundles = {
+  #  'WYUtility' => ['WYUtility/**/*.ttf']
+  #}
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
