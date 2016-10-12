@@ -8,10 +8,7 @@
 
 #import "WYCollectionView.h"
 
-#import "WYCollectionUnitProtocol.h"
 #import "WYReusableViewFactory.h"
-
-//#import "ShopSearchResultEmptyView.h"
 
 
 @interface WYCollectionView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
@@ -170,17 +167,6 @@
     return UIEdgeInsetsZero;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section { // 行间距
-    id<WYReusableViewData> data = _datas.count ? _datas[0] : nil;
-    if (!data) {
-        return 0;
-    }
-    Class clazz = [_viewFactory getCollectionReusableViewClassWithPositionType:WYCollectionViewPositionTypeCenter dataType:data.dataType];
-    CGFloat size = [_viewFactory minimumInteritemSpacingForReusableViewClass:clazz];
-    return size;
-}
-
-#pragma mark - UICollectionViewDelegateFlowLayout
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     id<WYReusableViewData> data = _datas.count ? _datas[0] : nil;
     if (!data) {
@@ -191,8 +177,18 @@
     return size;
 }
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section { // 行间距
+    id<WYReusableViewData> data = _datas.count ? _datas[0] : nil;
+    if (!data) {
+        return 0;
+    }
+    Class clazz = [_viewFactory getCollectionReusableViewClassWithPositionType:WYCollectionViewPositionTypeCenter dataType:data.dataType];
+    CGFloat size = [_viewFactory minimumInteritemSpacingForReusableViewClass:clazz];
+    return size;
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return  CGSizeZero;
+    return CGSizeZero;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {

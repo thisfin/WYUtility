@@ -26,7 +26,7 @@
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(UICollectionViewScrollDirection)scrollDirection;
 
 - (void)registCollectionReusableView:(Class)clazz;                          // 注册cell
-- (void)registCellController:(id<WYCellControllerProtocol>)controller;  // 注册cell的controller
+- (void)registCellController:(id<WYCellControllerProtocol>)controller;      // 注册cell的controller
 - (void)reloadData;                                                         // cell数据重加载
 - (void)setCollectionContentInset:(UIEdgeInsets)contentInset;               // 内缩样式
 @end
