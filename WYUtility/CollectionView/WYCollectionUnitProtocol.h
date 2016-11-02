@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, WYCollectionViewPositionType) {
 
 // 子元素
 @protocol WYReusableViewData <NSObject>
-@property (nonatomic, assign) NSString* dataType;
+@property (nonatomic, strong) NSString* dataType;
 @end
 
 
